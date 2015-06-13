@@ -1,0 +1,24 @@
+{
+  "name": "objectree",
+  "version": "1.0.0",
+  "description": "Module to convert javascript object to tree structure to access easily",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mahfuzsust/objectree.git"
+  },
+  "keywords": [
+    "object",
+    "tree",
+    "structure"
+  ],
+  "author": "Mahfuzur Rahman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mahfuzsust/objectree/issues"
+  },
+  "homepage": "https://github.com/mahfuzsust/objectree#readme"
+}

@@ -4,7 +4,7 @@
   "description": "Module to convert javascript object to tree structure to access easily",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "make test"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/mahfuzsust/objectree/issues"
   },
-  "homepage": "https://github.com/mahfuzsust/objectree#readme"
+  "homepage": "https://github.com/mahfuzsust/objectree#readme",
+  "devDependencies": {
+    "chai": "^3.0.0",
+    "mocha": "^2.2.5",
+    "shortid" : "*"
+  }
 }

@@ -1,40 +1,35 @@
-var should = require('chai').should(),
-    scapegoat = require('../index'),
-    escape = scapegoat.escape,
-    unescape = scapegoat.unescape;
+/**
+ * Created by mahfuz on 6/16/15.
+ */
+var should = require('chai').should();
+var objectree = require('../index.js');
 
-describe('#escape', function() {
-  it('converts & into &amp;', function() {
-    escape('&').should.equal('&amp;');
-  });
+var obj = {
+    name: "mahfuz",
+    hand: ["Left", "right"],
+    place: "Dhaka",
+    work: {
+        engineering: {
+            computer: {
+                science: {
+                    Shahjalal: {
+                        CSE: "cse",
+                        CEP: "cep"
+                    }
+                }
+            }
+        }
+    }
+};
+var tree = objectree.createTree(obj);
+describe('#objectree', function () {
+    it('create a tree object', function () {
+        tree.serialize().should.equal('{"nodeName":"root","attributes":[],"childs":[{"nodeName":"name","attributes":[],"childs":[],"value":"mahfuz","parent":"root","id":1},{"nodeName":"hand","attributes":["Left","right"],"childs":[],"value":null,"parent":"root","id":2},{"nodeName":"place","attributes":[],"childs":[],"value":"Dhaka","parent":"root","id":3},{"nodeName":"work","attributes":[],"childs":[{"nodeName":"engineering","attributes":[],"childs":[{"nodeName":"computer","attributes":[],"childs":[{"nodeName":"science","attributes":[],"childs":[{"nodeName":"Shahjalal","attributes":[],"childs":[{"nodeName":"CSE","attributes":[],"childs":[],"value":"cse","parent":"Shahjalal","id":9},{"nodeName":"CEP","attributes":[],"childs":[],"value":"cep","parent":"Shahjalal","id":10}],"value":null,"parent":"science","id":8}],"value":null,"parent":"computer","id":7}],"value":null,"parent":"engineering","id":6}],"value":null,"parent":"work","id":5}],"value":null,"parent":"root","id":4}],"value":null,"parent":null,"id":0}');
+    });
 
-  it('converts " into &quot;', function() {
-    escape('"').should.equal('&quot;');
-  });
+    it('get first child', function () {
+        var firsChild = '{"nodeName":"name","attributes":[],"childs":[],"value":"mahfuz","parent":{"nodeName":"root","attributes":[],"childs":["name",{"nodeName":"hand","attributes":["Left","right"],"childs":[],"value":null,"parent":"root","id":2},{"nodeName":"place","attributes":[],"childs":[],"value":"Dhaka","parent":"root","id":3},{"nodeName":"work","attributes":[],"childs":[{"nodeName":"engineering","attributes":[],"childs":[{"nodeName":"computer","attributes":[],"childs":[{"nodeName":"science","attributes":[],"childs":[{"nodeName":"Shahjalal","attributes":[],"childs":[{"nodeName":"CSE","attributes":[],"childs":[],"value":"cse","parent":"Shahjalal","id":9},{"nodeName":"CEP","attributes":[],"childs":[],"value":"cep","parent":"Shahjalal","id":10}],"value":null,"parent":"science","id":8}],"value":null,"parent":"computer","id":7}],"value":null,"parent":"engineering","id":6}],"value":null,"parent":"work","id":5}],"value":null,"parent":"root","id":4}],"value":null,"parent":null,"id":0},"id":1}';
+        tree.getFirstChild().serialize().should.equal(firsChild);
+    });
 
-  it('converts < into &lt;', function() {
-    escape('<').should.equal('&lt;');
-  });
-
-  it('converts > into &gt;', function() {
-    escape('>').should.equal('&gt;');
-  });
-});
-
-describe('#unescape', function() {
-  it('converts &amp; into &', function() {
-    unescape('&amp;').should.equal('&');
-  });
-
-  it('converts &quot; into "', function() {
-    unescape('&quot;').should.equal('"');
-  });
-
-  it('converts &lt; into <', function() {
-    unescape('&lt;').should.equal('<');
-  });
-
-  it('converts &gt; into >', function() {
-    unescape('&gt;').should.equal('>');
-  });
 });

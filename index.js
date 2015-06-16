@@ -2,7 +2,7 @@
  * Created by mahfuz on 6/14/15.
  */
 
-var shortid = require('shortid');
+var ct = 0;
 
 var Node = function(nodeName) {
     this.nodeName = nodeName;
@@ -10,12 +10,12 @@ var Node = function(nodeName) {
     this.childs = [];
     this.value = null;
     this.parent = null;
-    this.id = shortid.generate();
+    this.getId();
 };
 
 Node.prototype.getId = function() {
     if(!this.id) {
-        this.id = shortid.generate();
+        this.id = ct++;
     }
     return this.id;
 };
@@ -38,14 +38,45 @@ Node.prototype.getChild = function() {
     return this.childs || null;
 };
 Node.prototype.getChildByName = function(childName) {
-    if(this.hasChild()) {
-        async.each(this.getChild(), function (item) {
-            if (item.nodeName == childName) {
-                console.log(item.nodeName);
-                return item;
+    if(typeof childName != 'string') {
+        return null;
+    }
+    if (!this.hasChild()) {
+        return null;
+    } else {
+        var children = this.getChild();
+        var notFound = true;
+        var found = {};
+        children.forEach(function (item) {
+            if (item.nodeName === childName && notFound) {
+                found = item;
+                notFound = false;
             }
         });
+        if (isEmpty(found)) {
+            return null;
+        }
+        return found;
     }
+};
+Node.prototype.getChildByIndex = function(index) {
+    if (typeof index !== 'number' || (typeof index !== 'string' && isNaN(index))) {
+        return null;
+    }
+    var ind = parseInt(index);
+    if (!this.hasChild()) {
+        return null;
+    }
+    var children = this.getChild();
+    if (children.length < ind) {
+        return null;
+    }
+    return children[ind];
+
+};
+
+Node.prototype.getFirstChild = function() {
+    return this.getChildByIndex(0);
 };
 
 Node.prototype.addAttribute = function(attribute) {
@@ -69,25 +100,36 @@ Node.prototype.getValue = function() {
     return this.value || null;
 };
 
-
-
-var Tree = function(jsObj) {
-    if(jsObj == null || typeof jsObj !== 'object') {
-        return null;
+Node.prototype.hasSibling = function() {
+    var parent = this.getParent();
+    if(parent == null) {
+        return false;
     }
-    else {
-        var root = new Node('root');
-        generateTree(jsObj, root);
-        return root;
-    }
+    return parent.getChild().length > 1;
+};
+
+Node.prototype.isLeaf = function() {
+    var children = this.getChild();
+    return children == null || children.length == 0;
+};
+
+Node.prototype.serialize = function () {
+    var cache = [];
+    return JSON.stringify(this, function(key, value) {
+        if (typeof value === 'object' && value !== null) {
+            if (cache.indexOf(value) !== -1) {
+                return value.getName();
+            }
+            cache.push(value);
+        }
+        return value;
+    });
 };
 
 var validateValue = function(val) {
-    if (typeof val == 'number' || typeof val == 'string' || val === "boolean" || val === "symbol") {
-        return true;
-    }
-    return false;
-}
+    return !!(typeof val == 'number' || typeof val == 'string' || val === "boolean" || val === "symbol");
+    
+};
 
 
 var generateTree = function(obj, parentNode) {
@@ -110,7 +152,7 @@ var generateTree = function(obj, parentNode) {
             }
             parentNode.addChild(newNode);
 
-            newNode.setParent(parentNode.getId());
+            newNode.setParent(parentNode);
 
             generateTree(obj[key], newNode);
         });
@@ -118,5 +160,17 @@ var generateTree = function(obj, parentNode) {
 
 
 };
+var createTree = function(jsObj) {
+    if (jsObj == null || typeof jsObj !== 'object') {
+        return null;
+    }
+    var root = new Node('root');
+    generateTree(jsObj, root);
+    return root;
+};
 
-exports.Tree = Tree;
+var isEmpty = function(obj) {
+    return Object.keys(obj).length === 0;
+};
+
+exports.createTree = createTree;

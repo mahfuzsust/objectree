@@ -1,5 +1,6 @@
 # objectree
 
+[![NPM version](https://img.shields.io/npm/v/objectree.svg)](https://www.npmjs.com/package/objectree)
 ## About
 Objectree is a javascript node.js module that can convert a javascript or JSON object to a tree and access as a tree structure. 
 

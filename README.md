@@ -62,7 +62,7 @@ var fullTree = objectree.createTree(obj);
 
 ------------------------------------------------
 <a name="createTree" />
-### createTree(obj)
+### createTree()
 
 Create a `tree` node of the given `obj` to have the `tree` structure
 
@@ -83,5 +83,98 @@ __Examples__
 var treeObject = objectree.createTree(obj);
 ```
 
+
+---------------------------------------
+
+<a name="hasChild" />
+### hasChild()
+
+To check if the object has any child
+
+__Arguments__
+
+* `void`
+
+__Returns__
+
+* `true` or `false`
+
+__Examples__
+
+
+```js
+var hasChild = treeObject.hasChild();
+```
+
+---------------------------------------
+
+
+<a name="hasAttribute" />
+### hasAttribute()
+
+To check if the object has any attributes
+
+__Arguments__
+
+* 'void'
+
+__Returns__
+
+* `true` or `false`
+
+__Examples__
+
+
+```js
+var hasAttribute = treeObject.hasAttribute();
+```
+
+---------------------------------------
+
+<a name="getName" />
+### getName()
+
+Get name of the current node.
+
+__Arguments__
+
+* 'void'
+
+__Returns__
+
+* 'string' name
+
+__Examples__
+
+
+```js
+var name = treeObject.getName();
+```
+
+---------------------------------------
+
+<a name="addChild" />
+### addChild()
+
+Add a node to current node child list
+
+__Arguments__
+
+* 'Node' to add as a child
+
+__Returns__
+
+* 'void'
+
+__Note__
+
+* Get a child from node or create a node with `new Node()`
+
+__Examples__
+
+
+```js
+test.addChild(treeObject.getFirstChild()); 
+```
 
 ---------------------------------------

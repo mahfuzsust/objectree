@@ -168,7 +168,7 @@ __Returns__
 
 __Note__
 
-* Get a child from node or create a node with `new Node()`
+* Get a child from node or create a node with `objectree.newNode()`
 
 __Examples__
 

@@ -1,6 +1,6 @@
 {
   "name": "objectree",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Module to convert javascript object to tree structure to access easily",
   "main": "index.js",
   "scripts": {

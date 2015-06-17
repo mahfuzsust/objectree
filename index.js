@@ -173,4 +173,8 @@ var isEmpty = function(obj) {
     return Object.keys(obj).length === 0;
 };
 
+var newNode = function(nodeName) {
+    return new Node(nodeName);
+}
+exports.newNode = newNode;
 exports.createTree = createTree;

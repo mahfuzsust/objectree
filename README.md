@@ -24,7 +24,6 @@ var obj = {
 };
 
 var fullTree = tree.createTree(obj);
-fullTree.getFirstChild();
 .....
 
 ```
@@ -32,4 +31,29 @@ fullTree.getFirstChild();
 
 ## Features
 * A ```tree``` structure is created from javascript/json object.
+* ```tree``` is a node that contains ```child``` and ```parent``` concept
+* Loop through the structure with ```child``` and ```parent``` facilities.
+* Represent a Tree structured node.
+
+## Documentation
+### Methods
+
+* [`createTree`](#createTree)
+* [`hasChild`](#hasChild)
+* [`hasAttribute`](#hasAttribute)
+* [`getName`](#getName)
+* [`addChild`](#addChild)
+* [`getChild`](#getChild)
+* [`getChildByName`](#getChildByName)
+* [`getChildByIndex`](#getChildByIndex)
+* [`getFirstChild`](#getFirstChild)
+* [`addAttribute`](#addAttribute)
+* [`getAttribute`](#getAttribute)
+* [`setParent`](#setParent)
+* [`getParent`](#getParent)
+* [`setValue`](#setValue)
+* [`getValue`](#getValue)
+* [`hasSibling`](#hasSibling)
+* [`isLeaf`](#isLeaf)
+* [`serialize`](#serialize)
 

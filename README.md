@@ -9,7 +9,7 @@ Objectree is a javascript node.js module that can convert a javascript or JSON o
 ## Usage
 
 ```javascript
-var tree = require("objectree");
+var objectree = require("objectree");
 
 var obj = {
   "a": "test",
@@ -23,7 +23,7 @@ var obj = {
   }
 };
 
-var fullTree = tree.createTree(obj);
+var fullTree = objectree.createTree(obj);
 .....
 
 ```
@@ -57,3 +57,28 @@ var fullTree = tree.createTree(obj);
 * [`isLeaf`](#isLeaf)
 * [`serialize`](#serialize)
 
+------------------------------------------------
+<a name="createTree" />
+### createTree(obj)
+
+Create a `tree` node of the given `obj` to have the `tree` structure
+
+__Arguments__
+
+* `obj` - A javascript object that is need to be converted to tree structure.
+
+__Returns__
+
+* `Tree object`
+
+__Examples__
+
+
+```js
+// obj -> is a javascript object.
+
+var treeObject = objectree.createTree(obj);
+```
+
+
+---------------------------------------

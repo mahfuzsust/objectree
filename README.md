@@ -1,9 +1,9 @@
 # objectree
 
-[![NPM version](https://img.shields.io/npm/v/objectree.svg)](https://www.npmjs.com/package/objectree)
+[![NPM version](https://img.shields.io/npm/v/objectree.svg?style=flat)](https://www.npmjs.com/package/objectree)
 [![Downloads](https://img.shields.io/npm/dm/objectree.svg?style=flat)](https://npmjs.org/package/objectree)
-[![Dependancy Status](https://david-dm.org/mahfuz/objectree.png)](https://david-dm.org/mahfuz/objectree)
-[![mit license](http://img.shields.io/badge/license-mit-blue.svg?style=flat-square)](https://github.com/mahfuzsust/objectree/blob/master/LICENSE)
+[![mit license](http://img.shields.io/badge/license-mit-blue.svg?style=flat)](https://github.com/mahfuzsust/objectree/blob/master/LICENSE)
+[![Dependancy Status](https://david-dm.org/mahfuz/objectree.png?style=flat)](https://david-dm.org/mahfuz/objectree)
 
 ## About
 Objectree is a javascript node.js module that can convert a javascript or JSON object to a tree and access as a tree structure. 

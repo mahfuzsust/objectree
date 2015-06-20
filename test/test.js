@@ -5,22 +5,18 @@ var should = require('chai').should();
 var objectree = require('../index.js');
 
 var obj = {
-    name: "mahfuz",
-    hand: ["Left", "right"],
-    place: "Dhaka",
-    work: {
-        engineering: {
-            computer: {
-                science: {
-                    Shahjalal: {
-                        CSE: "cse",
-                        CEP: "cep"
-                    }
-                }
-            }
-        }
+  "a": "test",
+  "b": true,
+  "c": 20,
+  "d": {
+    "e": {
+      "f": "test_a",
+      "g": "test_b"
     }
+  },
+  "h":"l_test"
 };
+
 var tree = objectree.createTree(obj);
 describe('#objectree', function () {
     it('create a tree object', function () {

@@ -2,6 +2,28 @@
  * Created by mahfuz on 6/14/15.
  */
 
+ var isNumber = function(value) {
+    return typeof val === 'number';
+}
+var isString = function(value) {
+    return typeof val === 'string';
+}
+var isBoolean = function(value) {
+    return typeof val === 'boolean';
+}
+var isSymbol = function(value) {
+    return typeof val === 'symbol';
+}
+var isObject = function(value) {
+    return typeof val === 'object';
+}
+var isFunction = function(value) {
+    return typeof val === 'function';
+}
+var isArray = function(value) {
+    return val instanceof Array;
+}
+
 var ct = 0;
 
 var Node = function(nodeName) {
@@ -10,15 +32,9 @@ var Node = function(nodeName) {
     this.childs = [];
     this.value = null;
     this.parent = null;
-    this.getId();
 };
 
-Node.prototype.getId = function() {
-    if(!this.id) {
-        this.id = ct++;
-    }
-    return this.id;
-};
+Node.prototype.id = ct++;
 
 Node.prototype.hasChild = function() {
     return this.childs.length > 0;
@@ -37,28 +53,30 @@ Node.prototype.addChild = function(childNode) {
 Node.prototype.getChild = function() {
     return this.childs || null;
 };
-Node.prototype.getChildByName = function(childName) {
-    if(typeof childName != 'string') {
-        return null;
-    }
-    if (!this.hasChild()) {
-        return null;
-    } else {
-        var children = this.getChild();
-        var notFound = true;
-        var found = {};
-        children.forEach(function (item) {
-            if (item.nodeName === childName && notFound) {
-                found = item;
-                notFound = false;
-            }
-        });
-        if (isEmpty(found)) {
-            return null;
-        }
-        return found;
-    }
-};
+// Node.prototype.getChildByName = function(childName) {
+//     if(typeof childName !== 'string') {
+//         return null;
+//     }
+//     if (!this.hasChild()) {
+//         return null;
+//     } else {
+//         var children = this.getChild();
+//         var notFound = true;
+//         var found = {};
+//         children.forEach(function (item) {
+//             if (item.nodeName === childName && notFound) {
+//                 found = item;
+//                 notFound = false;
+//             }
+//         });
+//         if (isEmpty(found)) {
+//             return null;
+//         }
+//         return found;
+//     }
+// };
+
+
 Node.prototype.getChildByIndex = function(index) {
     if (typeof index !== 'number' || (typeof index !== 'string' && isNaN(index))) {
         return null;
@@ -80,21 +98,35 @@ Node.prototype.getFirstChild = function() {
 };
 
 Node.prototype.addAttribute = function(attribute) {
-    this.attributes.push(attribute);
+    if(attribute instanceof Array) {
+        attribute.forEach(function(eachItem) {
+            this.attributes.push(eachItem);
+        });
+        return;
+    }
+    else {
+        this.attributes.push(attribute);
+    }
 };
 Node.prototype.getAttribute = function() {
     return this.attributes || null;
 };
 
 Node.prototype.setParent = function(parent) {
-    this.parent = parent;
+    if(parent instanceof Node)
+        this.parent = parent;
+    return;
 };
 Node.prototype.getParent = function() {
     return this.parent || null;
 };
 
 Node.prototype.setValue = function(value) {
-    this.value = value;
+    if(validateValue(value)) {
+        this.value = value;
+    }
+    return;
+    
 };
 Node.prototype.getValue = function() {
     return this.value || null;
@@ -126,10 +158,40 @@ Node.prototype.serialize = function () {
     });
 };
 
-var validateValue = function(val) {
-    return !!(typeof val == 'number' || typeof val == 'string' || val === "boolean" || val === "symbol");
-    
+var createTree = function(jsObj) {
+    if (jsObj == null || typeof jsObj !== 'object') {
+        return null;
+    }
+    var root = new Node('root');
+    generateTree(jsObj, root);
+    return root;
 };
+
+var isEmpty = function(obj) {
+    return Object.keys(obj).length === 0;
+};
+
+var newNode = function(nodeName) {
+    return new Node(nodeName);
+}
+
+var deserialize = function (str) {
+    var cache = [];
+    return JSON.parse(str, function(key, value) {
+        if (typeof value === 'object' && value !== null) {
+            if (cache.indexOf(value) == -1) {
+                cache.push(value);
+            }
+            return value;
+        }
+        return value;
+    });
+};
+
+var validateValue = function(val) {
+    return !!(typeof val === 'number' || typeof val === 'string' || val === "boolean" || val === "symbol");
+};
+
 
 
 var generateTree = function(obj, parentNode) {
@@ -160,21 +222,6 @@ var generateTree = function(obj, parentNode) {
 
 
 };
-var createTree = function(jsObj) {
-    if (jsObj == null || typeof jsObj !== 'object') {
-        return null;
-    }
-    var root = new Node('root');
-    generateTree(jsObj, root);
-    return root;
-};
 
-var isEmpty = function(obj) {
-    return Object.keys(obj).length === 0;
-};
-
-var newNode = function(nodeName) {
-    return new Node(nodeName);
-}
 exports.newNode = newNode;
 exports.createTree = createTree;

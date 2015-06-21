@@ -47,8 +47,7 @@ var fullTree = objectree.createTree(obj);
 * [`hasAttribute`](#hasAttribute)
 * [`getName`](#getName)
 * [`addChild`](#addChild)
-* [`getChild`](#getChild)
-* [`getChildByName`](#getChildByName)
+* [`getChilds`](#getChilds)
 * [`getChildByIndex`](#getChildByIndex)
 * [`getFirstChild`](#getFirstChild)
 * [`addAttribute`](#addAttribute)
@@ -150,6 +149,319 @@ __Examples__
 
 ```js
 var name = treeObject.getName();
+```
+
+---------------------------------------
+
+<a name="addChild" />
+### addChild()
+
+Add a node to current node child list
+
+__Arguments__
+
+* 'Node' to add as a child
+
+__Returns__
+
+* 'void'
+
+__Note__
+
+* Get a child from node or create a node with `objectree.newNode()`
+
+__Examples__
+
+
+```js
+test.addChild(treeObject.getFirstChild()); 
+```
+
+---------------------------------------
+
+<a name="getChilds" />
+### getChilds()
+
+Get all childs list of current node.
+
+__Arguments__
+
+* 'void' No argument
+
+__Returns__
+
+* 'child list'
+
+__Examples__
+
+
+```js
+var childs = test.getChilds(); 
+```
+
+---------------------------------------
+
+<a name="getFirstChild" />
+### getFirstChild()
+
+Get first child of current node.
+
+__Arguments__
+
+* 'void'
+
+__Returns__
+
+* 'Node' first child or 'null'
+
+__Examples__
+
+```js
+var firstChild = test.getFirstChild(); 
+```
+
+---------------------------------------
+
+<a name="getChildByIndex" />
+### getChildByIndex()
+
+Get child by index number
+
+__Arguments__
+
+* 'number' 0 based 
+
+__Returns__
+
+* 'Node' child of given index or 'null'
+
+__Examples__
+
+```js
+var child = test.getChildByIndex(2); 
+```
+---------------------------------------
+
+<a name="addAttribute" />
+### addAttribute()
+
+Add attribute to current node.
+
+__Arguments__
+
+* 'Array' or 'String' or 'Number'
+* 'Object' and 'function' are not supported 
+
+__Returns__
+
+* 'void'
+
+__Examples__
+
+```js
+test.addAttribute('abcd'); 
+```
+
+---------------------------------------
+
+<a name="getAttribute" />
+### getAttribute()
+
+Add a node to current node child list
+
+__Arguments__
+
+* 'void'
+
+__Returns__
+
+* 'attribute list' or 'null'
+
+__Examples__
+```js
+var attributes = test.getAttribute(); 
+```
+
+---------------------------------------
+
+<a name="addChild" />
+### addChild()
+
+Add a node to current node child list
+
+__Arguments__
+
+* 'Node' to add as a child
+
+__Returns__
+
+* 'void'
+
+__Note__
+
+* Get a child from node or create a node with `objectree.newNode()`
+
+__Examples__
+
+
+```js
+test.addChild(treeObject.getFirstChild()); 
+```
+
+---------------------------------------
+
+<a name="addChild" />
+### addChild()
+
+Add a node to current node child list
+
+__Arguments__
+
+* 'Node' to add as a child
+
+__Returns__
+
+* 'void'
+
+__Note__
+
+* Get a child from node or create a node with `objectree.newNode()`
+
+__Examples__
+
+
+```js
+test.addChild(treeObject.getFirstChild()); 
+```
+
+---------------------------------------
+
+<a name="addChild" />
+### addChild()
+
+Add a node to current node child list
+
+__Arguments__
+
+* 'Node' to add as a child
+
+__Returns__
+
+* 'void'
+
+__Note__
+
+* Get a child from node or create a node with `objectree.newNode()`
+
+__Examples__
+
+
+```js
+test.addChild(treeObject.getFirstChild()); 
+```
+
+---------------------------------------
+
+<a name="addChild" />
+### addChild()
+
+Add a node to current node child list
+
+__Arguments__
+
+* 'Node' to add as a child
+
+__Returns__
+
+* 'void'
+
+__Note__
+
+* Get a child from node or create a node with `objectree.newNode()`
+
+__Examples__
+
+
+```js
+test.addChild(treeObject.getFirstChild()); 
+```
+
+---------------------------------------
+
+<a name="addChild" />
+### addChild()
+
+Add a node to current node child list
+
+__Arguments__
+
+* 'Node' to add as a child
+
+__Returns__
+
+* 'void'
+
+__Note__
+
+* Get a child from node or create a node with `objectree.newNode()`
+
+__Examples__
+
+
+```js
+test.addChild(treeObject.getFirstChild()); 
+```
+
+---------------------------------------
+
+<a name="addChild" />
+### addChild()
+
+Add a node to current node child list
+
+__Arguments__
+
+* 'Node' to add as a child
+
+__Returns__
+
+* 'void'
+
+__Note__
+
+* Get a child from node or create a node with `objectree.newNode()`
+
+__Examples__
+
+
+```js
+test.addChild(treeObject.getFirstChild()); 
+```
+
+---------------------------------------
+
+<a name="addChild" />
+### addChild()
+
+Add a node to current node child list
+
+__Arguments__
+
+* 'Node' to add as a child
+
+__Returns__
+
+* 'void'
+
+__Note__
+
+* Get a child from node or create a node with `objectree.newNode()`
+
+__Examples__
+
+
+```js
+test.addChild(treeObject.getFirstChild()); 
 ```
 
 ---------------------------------------

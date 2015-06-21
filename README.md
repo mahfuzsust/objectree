@@ -116,7 +116,7 @@ To check if the object has any attributes
 
 __Arguments__
 
-* 'void'
+* `void`
 
 __Returns__
 
@@ -282,210 +282,172 @@ var attributes = test.getAttribute();
 
 ---------------------------------------
 
-<a name="addChild" />
-### addChild()
 
-Add a node to current node child list
+<a name="setParent" />
+### setParent()
+Set parent of current node explicitly. ( Not suggested )
 
 __Arguments__
 
-* 'Node' to add as a child
+* `Node`
 
 __Returns__
 
-* 'void'
-
-__Note__
-
-* Get a child from node or create a node with `objectree.newNode()`
+* `void`
 
 __Examples__
 
+```js
+var newParent = objectree.newNode();
+treeObject.setParent(newParent);
+```
+---------------------------------------
+
+<a name="getParent" />
+### getParent()
+
+Get parent node of current node.
+
+__Arguments__
+
+* `void`
+
+__Returns__
+
+* parent `Node` or `null`
+
+__Examples__
 
 ```js
-test.addChild(treeObject.getFirstChild()); 
+var parent = treeObject.getParent();
 ```
 
 ---------------------------------------
 
-<a name="addChild" />
-### addChild()
+<a name="setValue" />
+### setValue()
 
-Add a node to current node child list
+Set value of current node.
 
 __Arguments__
 
-* 'Node' to add as a child
+* `String` or `Boolean` or `Number` 
+* `function` and `Object` is not supported 
 
 __Returns__
 
-* 'void'
-
-__Note__
-
-* Get a child from node or create a node with `objectree.newNode()`
+* `void`
 
 __Examples__
 
 
 ```js
-test.addChild(treeObject.getFirstChild()); 
+treeObject.setValue("Hello World");
 ```
 
 ---------------------------------------
 
-<a name="addChild" />
-### addChild()
+<a name="getValue" />
+### getValue()
 
-Add a node to current node child list
+Get value of current node.
 
 __Arguments__
 
-* 'Node' to add as a child
+* `void`
 
 __Returns__
 
-* 'void'
-
-__Note__
-
-* Get a child from node or create a node with `objectree.newNode()`
+* `Value` or `null`
 
 __Examples__
 
-
 ```js
-test.addChild(treeObject.getFirstChild()); 
+var value = treeObject.getValue();
 ```
 
 ---------------------------------------
 
-<a name="addChild" />
-### addChild()
+<a name="hasChild" />
+### hasChild()
 
-Add a node to current node child list
+To check if the object has any child
 
 __Arguments__
 
-* 'Node' to add as a child
+* `void`
 
 __Returns__
 
-* 'void'
-
-__Note__
-
-* Get a child from node or create a node with `objectree.newNode()`
+* `true` or `false`
 
 __Examples__
 
 
 ```js
-test.addChild(treeObject.getFirstChild()); 
+var hasChild = treeObject.hasChild();
 ```
 
 ---------------------------------------
 
-<a name="addChild" />
-### addChild()
+<a name="hasSibling" />
+### hasSibling()
 
-Add a node to current node child list
+To check if current node has any sibling or not
 
 __Arguments__
 
-* 'Node' to add as a child
+* `void`
 
 __Returns__
 
-* 'void'
+* `true` or `false`
 
-__Note__
+__Examples__
+```js
+var hasSibling = treeObject.hasSibling();
+```
+---------------------------------------
 
-* Get a child from node or create a node with `objectree.newNode()`
+<a name="isLeaf" />
+### isLeaf()
+
+To check if the object is leaf
+
+__Arguments__
+
+* `void`
+
+__Returns__
+
+* `true` or `false`
 
 __Examples__
 
 
 ```js
-test.addChild(treeObject.getFirstChild()); 
+var isLeaf = treeObject.isLeaf();
 ```
 
 ---------------------------------------
 
-<a name="addChild" />
-### addChild()
-
-Add a node to current node child list
+<a name="serialize" />
+### serialize()
+Serialize the object before sending over or string conversion.
 
 __Arguments__
 
-* 'Node' to add as a child
+* `void`
 
 __Returns__
 
-* 'void'
-
-__Note__
-
-* Get a child from node or create a node with `objectree.newNode()`
+* `String`
 
 __Examples__
 
 
 ```js
-test.addChild(treeObject.getFirstChild()); 
-```
-
----------------------------------------
-
-<a name="addChild" />
-### addChild()
-
-Add a node to current node child list
-
-__Arguments__
-
-* 'Node' to add as a child
-
-__Returns__
-
-* 'void'
-
-__Note__
-
-* Get a child from node or create a node with `objectree.newNode()`
-
-__Examples__
-
-
-```js
-test.addChild(treeObject.getFirstChild()); 
-```
-
----------------------------------------
-
-<a name="addChild" />
-### addChild()
-
-Add a node to current node child list
-
-__Arguments__
-
-* 'Node' to add as a child
-
-__Returns__
-
-* 'void'
-
-__Note__
-
-* Get a child from node or create a node with `objectree.newNode()`
-
-__Examples__
-
-
-```js
-test.addChild(treeObject.getFirstChild()); 
+var isLeaf = treeObject.serialize();
 ```
 
 ---------------------------------------

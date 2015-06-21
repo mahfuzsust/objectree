@@ -2,27 +2,27 @@
  * Created by mahfuz on 6/14/15.
  */
 
- var isNumber = function(value) {
-    return typeof val === 'number';
-}
+var isNumber = function(value) {
+    return typeof value === 'number';
+};
 var isString = function(value) {
-    return typeof val === 'string';
-}
+    return typeof value === 'string';
+};
 var isBoolean = function(value) {
-    return typeof val === 'boolean';
-}
+    return typeof value === 'boolean';
+};
 var isSymbol = function(value) {
-    return typeof val === 'symbol';
-}
+    return typeof value === 'symbol';
+};
 var isObject = function(value) {
-    return typeof val === 'object';
-}
+    return typeof value === 'object';
+};
 var isFunction = function(value) {
-    return typeof val === 'function';
-}
+    return typeof value === 'function';
+};
 var isArray = function(value) {
-    return val instanceof Array;
-}
+    return value instanceof Array;
+};
 
 var ct = 0;
 
@@ -50,32 +50,9 @@ Node.prototype.getName = function() {
 Node.prototype.addChild = function(childNode) {
     this.childs.push(childNode);
 };
-Node.prototype.getChild = function() {
+Node.prototype.getChilds = function() {
     return this.childs || null;
 };
-// Node.prototype.getChildByName = function(childName) {
-//     if(typeof childName !== 'string') {
-//         return null;
-//     }
-//     if (!this.hasChild()) {
-//         return null;
-//     } else {
-//         var children = this.getChild();
-//         var notFound = true;
-//         var found = {};
-//         children.forEach(function (item) {
-//             if (item.nodeName === childName && notFound) {
-//                 found = item;
-//                 notFound = false;
-//             }
-//         });
-//         if (isEmpty(found)) {
-//             return null;
-//         }
-//         return found;
-//     }
-// };
-
 
 Node.prototype.getChildByIndex = function(index) {
     if (typeof index !== 'number' || (typeof index !== 'string' && isNaN(index))) {
@@ -85,7 +62,7 @@ Node.prototype.getChildByIndex = function(index) {
     if (!this.hasChild()) {
         return null;
     }
-    var children = this.getChild();
+    var children = this.getChilds();
     if (children.length < ind) {
         return null;
     }
@@ -126,7 +103,7 @@ Node.prototype.setValue = function(value) {
         this.value = value;
     }
     return;
-    
+
 };
 Node.prototype.getValue = function() {
     return this.value || null;
@@ -137,11 +114,11 @@ Node.prototype.hasSibling = function() {
     if(parent == null) {
         return false;
     }
-    return parent.getChild().length > 1;
+    return parent.getChilds().length > 1;
 };
 
 Node.prototype.isLeaf = function() {
-    var children = this.getChild();
+    var children = this.getChilds();
     return children == null || children.length == 0;
 };
 
@@ -189,15 +166,14 @@ var deserialize = function (str) {
 };
 
 var validateValue = function(val) {
-    return !!(typeof val === 'number' || typeof val === 'string' || val === "boolean" || val === "symbol");
+    return !!(isNumber(val) || isString(val) || isBoolean(val) || isSymbol(val));
 };
 
-
-
 var generateTree = function(obj, parentNode) {
-    if (typeof obj !== 'object' && (typeof obj !== 'function' || obj === null)) {
+    if(!isObject(obj) && (!isFunction(obj) || obj === null)) {
         return;
     }
+    
     if(obj instanceof Array) {
         obj.forEach(function(eachItem) {
             parentNode.addAttribute(eachItem);

@@ -138,11 +138,11 @@ Get name of the current node.
 
 __Arguments__
 
-* 'void'
+* `void`
 
 __Returns__
 
-* 'string' name
+* `string` name
 
 __Examples__
 
@@ -160,19 +160,17 @@ Add a node to current node child list
 
 __Arguments__
 
-* 'Node' to add as a child
+* `Node` to add as a child
 
 __Returns__
 
-* 'void'
+* `void`
 
 __Note__
 
 * Get a child from node or create a node with `objectree.newNode()`
 
 __Examples__
-
-
 ```js
 test.addChild(treeObject.getFirstChild()); 
 ```
@@ -186,11 +184,11 @@ Get all childs list of current node.
 
 __Arguments__
 
-* 'void' No argument
+* `void` No argument
 
 __Returns__
 
-* 'child list'
+* `child list`
 
 __Examples__
 
@@ -208,11 +206,11 @@ Get first child of current node.
 
 __Arguments__
 
-* 'void'
+* `void`
 
 __Returns__
 
-* 'Node' first child or 'null'
+* `Node` first child or `null`
 
 __Examples__
 
@@ -229,11 +227,11 @@ Get child by index number
 
 __Arguments__
 
-* 'number' 0 based 
+* `number` 0 based 
 
 __Returns__
 
-* 'Node' child of given index or 'null'
+* `Node` child of given index or 'null'
 
 __Examples__
 
@@ -249,12 +247,12 @@ Add attribute to current node.
 
 __Arguments__
 
-* 'Array' or 'String' or 'Number'
-* 'Object' and 'function' are not supported 
+* `Array` or `String` or `Number`
+* `Object` and `function` are not supported 
 
 __Returns__
 
-* 'void'
+* `void`
 
 __Examples__
 
@@ -271,11 +269,11 @@ Add a node to current node child list
 
 __Arguments__
 
-* 'void'
+* `void`
 
 __Returns__
 
-* 'attribute list' or 'null'
+* `attribute list` or `null`
 
 __Examples__
 ```js

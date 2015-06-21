@@ -41,8 +41,8 @@ var fullTree = objectree.createTree(obj);
 
 ## Documentation
 ### Methods
-
 * [`createTree`](#createTree)
+* [`newNode`](#newNode)
 * [`hasChild`](#hasChild)
 * [`hasAttribute`](#hasAttribute)
 * [`getName`](#getName)
@@ -75,15 +75,29 @@ __Returns__
 * `Tree object`
 
 __Examples__
-
-
 ```js
 // obj -> is a javascript object.
 
 var treeObject = objectree.createTree(obj);
 ```
+---------------------------------------
+<a name="newNode" />
+### newNode()
 
+Explicitly create a new Node to add or remove.
 
+__Arguments__
+
+* `void`
+
+__Returns__
+
+* `Node`
+
+__Examples__
+```js
+var newNode = objectree.newNode();
+```
 ---------------------------------------
 
 <a name="hasChild" />

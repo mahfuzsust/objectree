@@ -55,7 +55,7 @@ Node.prototype.getChilds = function() {
 };
 
 Node.prototype.getChildByIndex = function(index) {
-    if (typeof index !== 'number' || (typeof index !== 'string' && isNaN(index))) {
+    if ((isString(index) && isNaN(index)) || !isNumber(index)) {
         return null;
     }
     var ind = parseInt(index);

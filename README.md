@@ -61,8 +61,8 @@ var fullTree = objectree.createTree(obj);
 * [`serialize`](#serialize)
 
 ------------------------------------------------
-<a name="createTree" />
-## createTree()
+
+### createTree()
 
 Create a `tree` node of the given `obj` to have the `tree` structure
 
@@ -81,8 +81,8 @@ __Examples__
 var treeObject = objectree.createTree(obj);
 ```
 ---------------------------------------
-<a name="newNode" />
-## newNode()
+
+### newNode()
 
 Explicitly create a new Node to add or remove.
 
@@ -100,8 +100,8 @@ var newNode = objectree.newNode();
 ```
 ---------------------------------------
 
-<a name="hasChild" />
-## hasChild()
+
+### hasChild()
 
 To check if the object has any child
 
@@ -123,8 +123,8 @@ var hasChild = treeObject.hasChild();
 ---------------------------------------
 
 
-<a name="hasAttribute" />
-## hasAttribute()
+
+### hasAttribute()
 
 To check if the object has any attributes
 
@@ -145,8 +145,8 @@ var hasAttribute = treeObject.hasAttribute();
 
 ---------------------------------------
 
-<a name="getName" />
-## getName()
+
+### getName()
 
 Get name of the current node.
 
@@ -167,8 +167,8 @@ var name = treeObject.getName();
 
 ---------------------------------------
 
-<a name="addChild" />
-## addChild()
+
+### addChild()
 
 Add a node to current node child list
 
@@ -191,8 +191,8 @@ test.addChild(treeObject.getFirstChild());
 
 ---------------------------------------
 
-<a name="getChilds" />
-## getChilds()
+
+### getChilds()
 
 Get all childs list of current node.
 
@@ -213,8 +213,8 @@ var childs = test.getChilds();
 
 ---------------------------------------
 
-<a name="getFirstChild" />
-## getFirstChild()
+
+### getFirstChild()
 
 Get first child of current node.
 
@@ -234,8 +234,8 @@ var firstChild = test.getFirstChild();
 
 ---------------------------------------
 
-<a name="getChildByIndex" />
-## getChildByIndex()
+
+### getChildByIndex()
 
 Get child by index number
 
@@ -254,8 +254,8 @@ var child = test.getChildByIndex(2);
 ```
 ---------------------------------------
 
-<a name="addAttribute" />
-## addAttribute()
+
+### addAttribute()
 
 Add attribute to current node.
 
@@ -276,8 +276,8 @@ test.addAttribute('abcd');
 
 ---------------------------------------
 
-<a name="getAttribute" />
-## getAttribute()
+
+### getAttribute()
 
 Add a node to current node child list
 
@@ -297,8 +297,8 @@ var attributes = test.getAttribute();
 ---------------------------------------
 
 
-<a name="setParent" />
-## setParent()
+
+### setParent()
 Set parent of current node explicitly. ( Not suggested )
 
 __Arguments__
@@ -317,8 +317,8 @@ treeObject.setParent(newParent);
 ```
 ---------------------------------------
 
-<a name="getParent" />
-## getParent()
+
+### getParent()
 
 Get parent node of current node.
 
@@ -338,8 +338,8 @@ var parent = treeObject.getParent();
 
 ---------------------------------------
 
-<a name="setValue" />
-## setValue()
+
+### setValue()
 
 Set value of current node.
 
@@ -361,8 +361,8 @@ treeObject.setValue("Hello World");
 
 ---------------------------------------
 
-<a name="getValue" />
-## getValue()
+
+### getValue()
 
 Get value of current node.
 
@@ -382,8 +382,8 @@ var value = treeObject.getValue();
 
 ---------------------------------------
 
-<a name="hasChild" />
-## hasChild()
+
+### hasChild()
 
 To check if the object has any child
 
@@ -404,8 +404,8 @@ var hasChild = treeObject.hasChild();
 
 ---------------------------------------
 
-<a name="hasSibling" />
-## hasSibling()
+
+### hasSibling()
 
 To check if current node has any sibling or not
 
@@ -423,8 +423,8 @@ var hasSibling = treeObject.hasSibling();
 ```
 ---------------------------------------
 
-<a name="isLeaf" />
-## isLeaf()
+
+### isLeaf()
 
 To check if the object is leaf
 
@@ -445,8 +445,8 @@ var isLeaf = treeObject.isLeaf();
 
 ---------------------------------------
 
-<a name="serialize" />
-## serialize()
+
+### serialize()
 Serialize the object before sending over or string conversion.
 
 __Arguments__

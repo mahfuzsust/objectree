@@ -1,6 +1,6 @@
 {
   "name": "objectree",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Objectree is a javascript node.js module that can convert a javascript or JSON object to a tree and access as a tree structure.",
   "main": "index.js",
   "scripts": {
